@@ -1,5 +1,7 @@
 package com.example.yink.amadeus;
 
+import com.example.yink.amadeus.R;
+
 /**
  * Created by Yink on 28.02.2017.
  */

@@ -68,10 +68,6 @@ public class LaunchActivity extends AppCompatActivity {
 
         aniHandle.post(aniRunnable);
 
-        if (!isAppInstalled(LaunchActivity.this, "com.google.android.googlequicksearchbox")) {
-            status.setText(R.string.google_app_error);
-        }
-
         if (Alarm.isPlaying()) {
             status.setText(R.string.incoming_call);
             win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
@@ -85,7 +81,7 @@ public class LaunchActivity extends AppCompatActivity {
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!isPressed && isAppInstalled(LaunchActivity.this, "com.google.android.googlequicksearchbox")) {
+                if (!isPressed) {
                     isPressed = true;
 
                     connect.setImageResource(R.drawable.connect_select);
@@ -172,8 +168,6 @@ public class LaunchActivity extends AppCompatActivity {
 
         if (isPressed) {
             status.setText(R.string.disconnected);
-        } else if (!isAppInstalled(LaunchActivity.this, "com.google.android.googlequicksearchbox")) {
-            status.setText(R.string.google_app_error);
         } else if (Alarm.isPlaying()) {
             status.setText(R.string.incoming_call);
         } else {

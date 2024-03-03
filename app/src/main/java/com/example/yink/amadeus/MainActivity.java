@@ -169,9 +169,9 @@ public class MainActivity extends AppCompatActivity {
 
                     /* Switch language within current context for voice recognition */
                     Context context = LangContext.load(getApplicationContext(), contextLang[0]);
-
                     ArrayList<String> input = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    Log.e("TEXT", input.get(0));
                     Amadeus.responseToInput(input.get(0), context, MainActivity.this);
                 }
                 break;
